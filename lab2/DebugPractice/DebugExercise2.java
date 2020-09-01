@@ -3,19 +3,23 @@
  * Code adapted from https://stackoverflow.com/questions/4895173/bitwise-multiply-and-add-in-java and https://stackoverflow.com/questions/1533131/what-useful-bitwise-operator-code-tricks-should-a-developer-know-about
  */
 public class DebugExercise2 {
-    /** Returns the max of a and b. Do not step into this function. 
-      * This function may have a bug, but if it does, you should find it
-      * by stepping over, not into. */
+//    /** Returns the max of a and b. Do not step into this function.
+//      * This function may have a bug, but if it does, you should find it
+//      * by stepping over, not into. */
+//    public static int max(int a, int b) {
+//        int w = (b - a) >> 31;
+//        /* If you're stepping into this function, click the
+//           step out button because you're not going to learn anything. */
+//        int z = ~(b - a) >> 31;
+//
+//        int max = b & w | a & z;
+//        return max;
+//    }
+
+    /** Rewrite max */
     public static int max(int a, int b) {
-        int w = (b - a) >> 31;
-        /* If you're stepping into this function, click the
-           step out button because you're not going to learn anything. */
-        int z = ~(b - a) >> 31;
-
-        int max = b & w | a & z;
-        return max;
+        return (a > b) ? a : b;
     }
-
 
     /** Returns the sum of a and b. Do not step into this function. 
       * This function may have a bug, but if it does, you should find it
@@ -55,13 +59,22 @@ public class DebugExercise2 {
         return returnArray;
     }
 
-    /** Returns the sum of all elements in x. */
+//    /** Returns the sum of all elements in x. */
+//    public static int arraySum(int[] x) {
+//        int i = 0;
+//        int sum = 0;
+//        while (i < x.length) {
+//            sum = sum + add(sum, x[i]);
+//            i = i + 1;
+//        }
+//        return sum;
+//    }
+
+    /** Rewrite sum */
     public static int arraySum(int[] x) {
-        int i = 0;
         int sum = 0;
-        while (i < x.length) {
-            sum = sum + add(sum, x[i]);
-            i = i + 1;
+        for (int i = 0; i < x.length; i++) {
+            sum += x[i];
         }
         return sum;
     }
