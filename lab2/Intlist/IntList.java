@@ -111,7 +111,12 @@ public class IntList {
                 A = A.rest;
                 p = p.rest;
             }
+        }  else if (B != null){
+            ret = new IntList(B.first, null);
+            p = ret;
+            B = B.rest;
         }
+
         while (B != null) {
             p.rest = new IntList(B.first, null);
             B = B.rest;
