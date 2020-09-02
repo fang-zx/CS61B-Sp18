@@ -10,11 +10,11 @@ public class LinkedListDeque<T> {
     }
 
     private class Node {
-        public T item;
-        public Node prev;
-        public Node next;
+        private T item;
+        private Node prev;
+        private Node next;
 
-        public Node() {}
+        public Node() { }
         public Node(T item) {
             this.item = item;
             this.next = null;
@@ -104,9 +104,13 @@ public class LinkedListDeque<T> {
     }
 
     private T getRecursizeHelper(Node node, int index) {
-        if (node == null) return null;
-        if (index == 0) return node.item;
-        return getRecursizeHelper(node.next, index-1);
+        if (node == null) {
+            return null;
+        }
+        if (index == 0) {
+            return node.item;
+        }
+        return getRecursizeHelper(node.next, index - 1);
     }
     public T getRecursive(int index) {
         return getRecursizeHelper(sentinel.next, index);

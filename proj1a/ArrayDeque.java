@@ -1,4 +1,4 @@
-import java.util.Arrays;
+
 
 public class ArrayDeque<T> {
     private T[] items;
@@ -71,6 +71,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) return null;
         T first = items[(nextFirst + 1) % items.length];
         nextFirst = (nextFirst + 1) % items.length;
         size--;
@@ -79,6 +80,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (size == 0) return null;
         T last = items[(nextLast - 1 + items.length) % items.length];
         nextLast = (nextLast - 1 + items.length) % items.length;
         size--;
