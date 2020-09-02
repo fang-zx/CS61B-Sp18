@@ -108,7 +108,7 @@ public class LinkedListDeque<T> {
         if (index == 0) return node.item;
         return getRecursizeHelper(node.next, index-1);
     }
-    public T getRecursize(int index) {
+    public T getRecursive(int index) {
         return getRecursizeHelper(sentinel.next, index);
     }
 }
