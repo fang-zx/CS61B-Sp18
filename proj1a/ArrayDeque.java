@@ -9,7 +9,7 @@ public class ArrayDeque<T> {
     private void resize(int n) {
         T[] newArr = (T[]) new Object[n];
         for (int i = 1; i <= size; i++) {
-            newArr[i] = items[nextFirst + i];
+            newArr[i] = items[(nextFirst + i) % items.length];
         }
         items = newArr;
         nextFirst = 0;
@@ -23,14 +23,14 @@ public class ArrayDeque<T> {
         nextLast = 1;
     }
 
-    public ArrayDeque(ArrayDeque other) {
-        items = (T[]) new Object[other.size()];
-        for (int i = 0; i < other.size(); i++) {
-            items[i] = (T) other.get(i);
-        }
-        nextFirst = other.nextFirst;
-        nextLast = other.nextLast;
-    }
+//    public ArrayDeque(ArrayDeque other) {
+//        items = (T[]) new Object[other.size()];
+//        for (int i = 0; i < other.size(); i++) {
+//            items[i] = (T) other.get(i);
+//        }
+//        nextFirst = other.nextFirst;
+//        nextLast = other.nextLast;
+//    }
 
     public void addFirst(T item) {
         if (size == items.length) {
