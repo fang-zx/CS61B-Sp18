@@ -22,17 +22,17 @@ public class LinkedListDeque<T> {
         }
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
-        size = 0;
-        sentinel = new Node();
-        sentinel.prev = sentinel;
-        sentinel.next = sentinel;
-
-        for (int i = 0; i < other.size(); i++) {
-            T inserted = (T)other.get(i);
-            addLast(inserted);
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque other) {
+//        size = 0;
+//        sentinel = new Node();
+//        sentinel.prev = sentinel;
+//        sentinel.next = sentinel;
+//
+//        for (int i = 0; i < other.size(); i++) {
+//            T inserted = (T) other.get(i);
+//            addLast(inserted);
+//        }
+//    }
     public void addFirst(T item) {
         size++;
         Node newNode = new Node(item);
