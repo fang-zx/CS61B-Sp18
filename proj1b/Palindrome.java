@@ -21,9 +21,8 @@ public class Palindrome {
     private boolean isPalindromeHelper(String word, int b, int e) {
         if (b >= e) {
             return true;
-        }
-        else {
-            return word.charAt(b) == word.charAt(e) && isPalindromeHelper(word, b + 1 , e - 1);
+        } else {
+            return word.charAt(b) == word.charAt(e) && isPalindromeHelper(word, b + 1, e - 1);
         }
     }
 
@@ -38,7 +37,7 @@ public class Palindrome {
         while (dq.size() > 1) {
             char front  = dq.removeFirst();
             char back = dq.removeLast();
-            if (cc.equalChars(front, back) == false) {
+            if (!cc.equalChars(front, back)) {
                 return false;
             }
         }
