@@ -1,12 +1,9 @@
-
- package synthesizer;
+package synthesizer;
 import java.util.Iterator;
 
-//TODO: Make sure to make this class and all of its methods public
-//TODO: Make sure to make this class extend AbstractBoundedQueue<t>
 public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     /* Index for the next dequeue or peek. */
-    private int first;            // index for the next dequeue or peek
+    private int first;
     /* Index for the next enqueue. */
     private int last;
     /* Array for storing the buffer data. */
@@ -16,7 +13,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * Create a new ArrayRingBuffer with the given capacity.
      */
     public ArrayRingBuffer(int capacity) {
-        rb = (T[])new Object[capacity];
+        rb = (T[]) new Object[capacity];
         first = 0;
         last = 0;
         fillCount = 0;
@@ -59,12 +56,12 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      * Return oldest item, but don't remove it.
      */
     public T peek() {
-        return rb[first];
+        if (isEmpty()) {
+            throw new RuntimeException("Ring Buffer Underflow");
+        } else {
+            return rb[first];
+        }
     }
-
-
-
-    // TODO: When you get to part 5, implement the needed code to support iteration.
 
     private class ArrayRingIterator implements Iterator {
         private int pos = first;
