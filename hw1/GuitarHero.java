@@ -1,22 +1,21 @@
 import edu.princeton.cs.algs4.StdAudio;
 
 public class GuitarHero {
-    private static final String keyboard = "q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' ";
+    private static final String KEYBOARD = "q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' ";
 
     public static void main(String[] args) {
         synthesizer.GuitarString[] strings = new synthesizer.GuitarString[37];
 
         for (int i = 0; i < 37; i++) {
-            strings[i] = new synthesizer.GuitarString(440 * Math.pow(2.0, (i-24)/12));
+            strings[i] = new synthesizer.GuitarString(440 * Math.pow(2.0, (i - 24) / 12));
         }
         while (true) {
             if (StdDraw.hasNextKeyTyped()) {
                 char key = StdDraw.nextKeyTyped();
-                int index = keyboard.indexOf(key);
+                int index = KEYBOARD.indexOf(key);
                 if (index < 0) {
                     continue;
-                }
-                else {
+                } else {
                     strings[index].pluck();
                 }
             }

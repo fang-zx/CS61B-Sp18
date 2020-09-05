@@ -17,7 +17,7 @@ public class TestArrayRingBuffer {
                 arb.dequeue();
             }
         }
-        
+
         for (int x: arb) {
             System.out.println(x);
         }
