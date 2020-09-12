@@ -74,12 +74,12 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     public void put(K key, V value) {
         if (key == null || value == null) return;
         int bucketIndex = hash(key);
-        buckets[bucketIndex].put(key, value);
-        size++;
         if (!buckets[bucketIndex].containsKey(key)) {
-            if (loadFactor() > MAX_LF) {
-                resize();
-            }
+            size++;
+        }
+        buckets[bucketIndex].put(key, value);
+        if (loadFactor() > MAX_LF) {
+            resize();
         }
     }
 

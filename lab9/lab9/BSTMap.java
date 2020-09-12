@@ -142,6 +142,10 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             if (valueCheck && !p.value.equals(value)) {
                 return null;
             }
+            if (p == root) {
+                root = null;
+                return p;
+            }
             if (p.left == null)  return p.right;
             if (p.right == null) return p.left;
             Node t = p;
