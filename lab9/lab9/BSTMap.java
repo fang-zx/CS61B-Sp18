@@ -160,9 +160,13 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
     @Override
     public V remove(K key) {
         if (key == null) return null;
-        size--;
         Node removed =  removeHelper(key, null, root, false);
-        return removed != null ? removed.value : null;
+        if (removed != null) {
+            if (--size == 0) root = null;
+            return removed.value;
+        } else {
+            return null;
+        }
     }
 
     /** Removes the key-value entry for the specified key only if it is
@@ -171,8 +175,14 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      **/
     @Override
     public V remove(K key, V value) {
+        if (key == null || value == null) return null;
         Node removed = removeHelper(key, value, root, true);
-        return removed != null ? removed.value : null;
+        if (removed != null) {
+            if (--size == 0) root = null;
+            return removed.value;
+        } else {
+            return null;
+        }
     }
 
 
