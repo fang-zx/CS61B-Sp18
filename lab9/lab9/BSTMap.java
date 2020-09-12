@@ -140,18 +140,15 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             p.right = removeHelper(key, value, p.right, valueCheck);
         } else {
             if (valueCheck && !p.value.equals(value)) {
-                return null;
-            }
-            if (p == root) {
-                root = null;
                 return p;
             }
-            if (p.left == null)  return p.right;
             if (p.right == null) return p.left;
+            if (p.left == null)  return p.right;
             Node t = p;
             Node minNode = min(p.right);
             p.key = minNode.key;
             p.value = minNode.value;
+            removeMin(p.right);
         }
         return p;
     }
