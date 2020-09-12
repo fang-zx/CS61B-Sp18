@@ -74,13 +74,13 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     public void put(K key, V value) {
         if (key == null || value == null) return;
         int bucketIndex = hash(key);
+        buckets[bucketIndex].put(key, value);
+        size++;
         if (!buckets[bucketIndex].containsKey(key)) {
-            size++;
             if (loadFactor() > MAX_LF) {
                 resize();
             }
         }
-        buckets[bucketIndex].put(key, value);
     }
 
     /* Returns the number of key-value mappings in this map. */
