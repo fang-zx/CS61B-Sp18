@@ -8,5 +8,6 @@ public class Hint {
             System.out.println(i + "th power: " + x);
             x = x * 256;
         }
+
     }
 } 
